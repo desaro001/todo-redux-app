@@ -1,0 +1,11 @@
+<!--la clase puede estar como editing o como completed-->
+<!--cuando doy doble click sobre un iten se tiene que poner la clase en modo editing -->
+<!--con blur le indico que voy a hacer cuando el usuario salga del item foco-->
+<li [class.completed]="todo.completado" [class.editing]="editando">
+    <div class="view">
+        <input class="toggle" type="checkbox" [formControl]="chkCompletado">
+        <label (dblclick)="editar()">{{todo.texto}}</label>
+        <button class="destroy" (click)="borrar()"></button>
+    </div>
+    <input class="edit" type="text" [formControl]="txtInput" #inputfisico (blur)="terminarEdicion()">
+</li>
